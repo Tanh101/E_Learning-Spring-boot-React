@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import style from "./Navbar.css";
 import image from "../../images/background-home.jpg";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   useEffect(() => {
-    document.querySelector('.navbar').classList.remove('mask-custom');
+    document.querySelector(".navbar").classList.remove("mask-custom");
   });
   const contents = [
     {
@@ -55,8 +57,20 @@ function Navbar() {
             =
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto">{renderContent()}</ul>
-            <ul>
+            <ul className="navbar-nav me-auto">
+              {renderContent()}
+              <li className="nav-item">
+                <div className="searchbar">
+                  <input
+                    className="search_input"
+                    type="text"
+                    placeholder="Search..."
+                  />
+                  <button className="search_btn">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </button>
+                </div>
+              </li>
             </ul>
             <ul className="navbar-nav d-flex flex-row">
               <li className="nav-item me-3 me-lg-0">
