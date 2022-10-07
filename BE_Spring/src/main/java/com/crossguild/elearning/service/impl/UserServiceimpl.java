@@ -16,13 +16,13 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Boolean exitsByUsername(String username) {
-        return userRepository.exitsByUsername(username);
+    public Boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
     }
 
     @Override
-    public Boolean exitsByEmail(String email) {
-        return userRepository.exitsByEmail(email);
+    public Boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
     @Override

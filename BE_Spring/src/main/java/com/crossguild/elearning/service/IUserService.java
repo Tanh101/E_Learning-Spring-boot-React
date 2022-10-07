@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface IUserService {
     Optional<User> findByUsername(String name);
-    Boolean exitsByUsername(String username);
-    Boolean exitsByEmail(String email);
+    Boolean existsByUsername(String username);
+    Boolean existsByEmail(String email);
     User save(User user);
 }
