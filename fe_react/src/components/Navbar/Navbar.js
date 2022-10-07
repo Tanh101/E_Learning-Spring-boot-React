@@ -2,8 +2,12 @@ import { Button } from "bootstrap";
 import { Link } from "react-router-dom";
 import style from "./Navbar.css"
 import image from "../../images/background-home.jpg";
+import { useEffect } from "react";
 
 function Navbar() {
+  useEffect(() => {
+    document.querySelector('.navbar').classList.remove('mask-custom');
+  });
   const contents = [
     {
       name: "Home",

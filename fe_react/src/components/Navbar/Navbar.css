@@ -5,6 +5,11 @@
   color: #fff;
 }
 
+.navbar {
+  transition: 0.2s;
+  background-color: #333;
+}
+
 /* Color of the links AFTER scroll */
 .navbar-scrolled .nav-link,
 .navbar-scrolled .navbar-toggler-icon,
@@ -15,7 +20,7 @@
 /* Color of the navbar AFTER scroll */
 .navbar-scroll,
 .navbar-scrolled {
-  background-color: #cbbcb1;
+  background-color: #333;
 }
 
 .mask-custom {
