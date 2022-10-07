@@ -1,6 +1,6 @@
 import { Button } from "bootstrap";
 import { Link } from "react-router-dom";
-import style from "./Navbar.css"
+import style from "./Navbar.css";
 import image from "../../images/background-home.jpg";
 
 function Navbar() {
@@ -15,8 +15,8 @@ function Navbar() {
     },
     {
       name: "Create",
-      href: "/addLesson"
-    }
+      href: "/addLesson",
+    },
   ];
   const renderContent = () => {
     return contents.map((item, index) => {
@@ -48,10 +48,12 @@ function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <i className="fas fa-bars"></i>
+            =
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto">{renderContent()}</ul>
+            <ul>
+            </ul>
             <ul className="navbar-nav d-flex flex-row">
               <li className="nav-item me-3 me-lg-0">
                 <Link

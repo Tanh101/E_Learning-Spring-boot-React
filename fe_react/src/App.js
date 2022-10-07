@@ -28,7 +28,7 @@ function App() {
             }
           />
           <Route
-            path="/addRestaurant"
+            path="/addLesson"
             element={
               <DefaultLayout>
                 <AddLesson />

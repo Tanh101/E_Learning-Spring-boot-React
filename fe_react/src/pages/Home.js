@@ -8,8 +8,8 @@ function Home() {
     <div>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
-          <h1 class="text-center fw-bold display-1 mb-5">
-            Famous <span class="text-danger">Lesson</span>
+          <h1 className="text-center fw-bold display-1 mb-5">
+            Famous <span className="text-danger">Lesson</span>
           </h1>
         </div>
       </div>

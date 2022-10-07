@@ -3,13 +3,11 @@ import "./AddLesson.css";
 import { storage, db } from "../../config/firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 function AddLesson() {
-  const [name, setName] = useState();
+  const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [address, setAddress] = useState();
-  const [phonenumber, setPhonenumber] = useState();
   const [urlImage, setUrlImage] = useState();
   const handleSubmit = () => {
-    const storageRef = ref(storage, `/images/${name}`);
+    const storageRef = ref(storage, `/images/${title}`);
     const uploadTask = uploadBytesResumable(storageRef, urlImage);
     uploadTask.on(
       "state_changed",
@@ -45,7 +43,7 @@ function AddLesson() {
                 type="text"
                 className="form-control mb-3"
                 placeholder="Enter restaurant name"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="form-group">
@@ -55,22 +53,6 @@ function AddLesson() {
                 placeholder="Enter description"
                 onChange={(e) => setDescription(e.target.value)}
               ></textarea>
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control mb-3"
-                placeholder="Enter restaurant address"
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                className="form-control mb-3"
-                placeholder="Enter restaurant phonenumber"
-                onChange={(e) => setPhonenumber(e.target.value)}
-              />
             </div>
             <div className="form-group">
               <button
