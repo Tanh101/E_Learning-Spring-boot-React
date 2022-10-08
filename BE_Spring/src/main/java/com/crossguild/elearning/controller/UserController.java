@@ -60,12 +60,9 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/auth")
+    @GetMapping("/info")
     public ResponseEntity<Authentication> getUser(@Valid @ModelAttribute SignInForm signInForm) {
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
         Authentication authentication1 = SecurityContextHolder.getContext().getAuthentication();
-//        MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
         return new ResponseEntity<>(authentication1, HttpStatus.OK);
     }
 }
