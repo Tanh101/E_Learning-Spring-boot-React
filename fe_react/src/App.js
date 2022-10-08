@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import SlideEdit from "./pages/SlideEdit";
 
 function App() {
   return (
@@ -37,6 +38,14 @@ function App() {
           />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route
+            path="/slide/edit"
+            element={
+              <DefaultLayout>
+                <SlideEdit />
+              </DefaultLayout>
+            }
+          />
         </Routes>
       </div>
     </Router>

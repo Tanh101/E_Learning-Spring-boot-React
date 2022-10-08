@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card/Card";
 import MultiCard from "../components/MultiCard/MultiCard";
+import image from "../images/background-home.jpg";
 
 function Home() {
   useEffect(() => {
@@ -23,6 +24,23 @@ function Home() {
   });
   return (
     <div>
+      <section>
+        <div
+          id="intro"
+          className="bg-image vh-100"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div
+            className="mask"
+            style={{ backgroundColor: "rgba(250, 182, 162, 0.15)" }}
+          ></div>
+        </div>
+      </section>
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
           <h1 className="text-center fw-bold display-1 mb-5">
@@ -30,7 +48,6 @@ function Home() {
           </h1>
         </div>
       </div>
-
       <MultiCard />
     </div>
   );
