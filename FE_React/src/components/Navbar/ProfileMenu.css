@@ -37,7 +37,7 @@
 }
 
 .dropdown {
-    position: absolute;
+    position: absolute !important;
     right: 1%;
     width: 130px;
     padding: 12px 0;
