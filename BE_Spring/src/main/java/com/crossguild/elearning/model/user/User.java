@@ -1,6 +1,8 @@
 package com.crossguild.elearning.model.user;
 
 import com.crossguild.elearning.model.quiz.Question;
+import com.crossguild.elearning.model.quiz.Quiz;
+import com.crossguild.elearning.model.quiz.QuizResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.NaturalId;
@@ -70,9 +72,15 @@ public class User {
         this.avatar = avatar;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    @JsonIgnore
-    private List<Question> questions;
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    @JsonIgnore
+//    private List<Question> questions;
+
+    @OneToMany(mappedBy = "user")
+    Set<QuizResult> quizResults;
+
+    @OneToMany(mappedBy = "user")
+    Set<Quiz> quizs;
 }

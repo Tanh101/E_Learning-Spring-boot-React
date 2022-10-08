@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7c03f6dc-05ff-488a-97f3-dec2a5b76293" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/quiz/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/quiz/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/user/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +131,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="dev2-Long" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
