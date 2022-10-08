@@ -1,9 +1,28 @@
 {
-  "restaurants": [
+  "cardKanjis": [
     {
       "id": 1,
-      "name": "",
-      "description": ""
+      "text": "魚",
+      "mean": "Con cá",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlI4XcZ4z9YOvRX0QDwhQXAVjplUqD6FyOHQ&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "text": "犬",
+      "mean": "Con chó",
+      "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=640:*"
+    },
+    {
+      "id": 3,
+      "text": "猫",
+      "mean": "Con mèo",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "text": "情報技術",
+      "mean": "Công nghệ thông tin",
+      "image": ""
     }
   ]
 }

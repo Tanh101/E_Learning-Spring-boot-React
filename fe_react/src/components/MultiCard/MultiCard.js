@@ -37,12 +37,9 @@ function MultiCard() {
       );
     });
   };
-
   return (
     <div>
-      <Carousel
-        responsive={responsive}
-      >
+      <Carousel centerMode={true} responsive={responsive}>
         {renderCard()}
       </Carousel>
     </div>
