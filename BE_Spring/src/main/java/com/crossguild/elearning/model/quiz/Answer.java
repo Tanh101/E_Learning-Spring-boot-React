@@ -1,6 +1,7 @@
 package com.crossguild.elearning.model.quiz;
 
 import com.crossguild.elearning.model.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,11 +17,10 @@ public class Answer {
     private String text;
     private boolean isCorrect;
 
-    @ManyToOne
-    @JoinColumn(name = "question_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnore
     private Question question;
-
-
 }

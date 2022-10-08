@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -69,8 +70,9 @@ public class User {
         this.avatar = avatar;
     }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private Collection<Question> questions;
+    @JsonIgnore
+    private List<Question> questions;
 }
