@@ -1,5 +1,6 @@
-package com.crossguild.elearning.security.Userpincal;
+package com.crossguild.elearning.security.service;
 
+import com.crossguild.elearning.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -9,48 +10,37 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserPrinciple implements UserDetails {
+public class MyUserDetails implements UserDetails {
 
-    private Long id;
-    private String name;
-    private String username;
-    private String email;
+    private final String username;
+    @JsonIgnore
+    private final String password;
+    private final Collection<? extends GrantedAuthority> roles;
 
-    public UserPrinciple(){
-
-    }
-
-    public UserPrinciple(Long id, String name, String username, String email, String password, String avatar, Collection<? extends GrantedAuthority> roles) {
-        this.id = id;
-        this.name = name;
+    public MyUserDetails(Long id, String fullName, String username, String email, String password, String avatar,
+                         Collection<? extends GrantedAuthority> roles) {
         this.username = username;
-        this.email = email;
         this.password = password;
-        this.avatar = avatar;
         this.roles = roles;
     }
 
-    @JsonIgnore
-    private String password;
-    private String avatar;
-    private Collection<? extends GrantedAuthority> roles;
-
-
-    public static UserPrinciple build(User user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName().name())).collect(Collectors.toList());
-        return new UserPrinciple(
+    public static MyUserDetails build(User user) {
+        List<GrantedAuthority> grantedAuthorities = user.getRoles().stream().map(
+                role -> new SimpleGrantedAuthority(role.getRole().name())).collect(Collectors.toList());
+        return new MyUserDetails(
                 user.getId(),
-                user.getName(),
+                user.getFullName(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
                 user.getAvatar(),
-                authorities
+                grantedAuthorities
         );
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return roles;
     }
 
     @Override

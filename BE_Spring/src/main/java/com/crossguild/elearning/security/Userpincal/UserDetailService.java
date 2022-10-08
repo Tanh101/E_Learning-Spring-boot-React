@@ -1,7 +1,5 @@
 package com.crossguild.elearning.security.Userpincal;
 
-import com.crossguild.elearning.model.User;
-import com.crossguild.elearning.repo.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
