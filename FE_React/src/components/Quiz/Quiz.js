@@ -30,11 +30,11 @@ function Quiz() {
         <span
           className={`option option${index + 1}`}
           key={index}
-          onClick={() => Select(item.isCorrect, index + 1)}
+          onClick={() => Select(index + 1)}
         >
           <label>
             <div className={`quiz-icon${index + 1}`}>
-              {item.isCorrect ? (
+              {item.correct ? (
                 <FontAwesomeIcon className="tick" icon={faCheckCircle} />
               ) : (
                 <FontAwesomeIcon className="cross" icon={faCircleXmark} />
