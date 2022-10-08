@@ -25,10 +25,8 @@
       "image": ""
     }
   ],
-  "question:1":{
-    "question": {
-      "text": "猫"
-    },
+  "question:1": {
+    "text": "猫",
     "answers": [
       {
         "text": "ねこ",
@@ -48,25 +46,23 @@
       }
     ]
   },
-  "question:2":{
-    "question": {
-      "text": "猫"
-    },
+  "question:2": {
+    "text": "犬",
     "answers": [
       {
-        "text": "ねこ",
+        "text": "いね",
+        "isCorrect": false
+      },
+      {
+        "text": "いめ",
+        "isCorrect": false
+      },
+      {
+        "text": "いぬ",
         "isCorrect": true
       },
       {
-        "text": "えこ",
-        "isCorrect": false
-      },
-      {
-        "text": "ねこう",
-        "isCorrect": false
-      },
-      {
-        "text": "ねっこ",
+        "text": "いいぬ",
         "isCorrect": false
       }
     ]

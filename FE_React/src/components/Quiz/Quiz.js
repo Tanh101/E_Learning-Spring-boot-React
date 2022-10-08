@@ -9,15 +9,20 @@ import {
 function Quiz() {
   const [question, setQuestion] = useState();
   const [answers, setAnswers] = useState();
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  console.log(currentQuestion);
   useEffect(() => {
-    API.get("/question").then((res) => {
-      setQuestion(res.data.question);
+    API.get(`/question:${currentQuestion}`).then((res) => {
+      setQuestion(res.data);
       setAnswers(res.data.answers);
     });
   }, []);
   const Select = (index) => {
     const answer = document.getElementsByClassName(`quiz-icon${index}`)[0];
     answer.classList.add("check");
+  };
+  const Next = () => {
+    setCurrentQuestion(currentQuestion + 1);
   };
   const renderAnswer = () => {
     return answers?.map((item, index) => {
@@ -60,7 +65,7 @@ function Quiz() {
         <div className="game-options-container">{renderAnswer()}</div>
 
         <div className="next-button-container">
-          <button>Next Question</button>
+          <button onClick={Next}>Next Question</button>
         </div>
       </div>
     </div>
