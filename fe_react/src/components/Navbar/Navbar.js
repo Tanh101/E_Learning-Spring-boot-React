@@ -1,10 +1,12 @@
 import { Button } from "bootstrap";
 import { Link } from "react-router-dom";
 import style from "./Navbar.css";
-import image from "../../images/background-home.jpg";
+
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { hover } from "@testing-library/user-event/dist/hover";
+import logo from "../../images/logo.png"
 
 function Navbar() {
   useEffect(() => {
@@ -21,7 +23,7 @@ function Navbar() {
     },
     {
       name: "Create",
-      href: "/addLesson",
+      href: "/create",
     },
   ];
   const renderContent = () => {
@@ -38,12 +40,10 @@ function Navbar() {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0 p-0">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <span style={{ color: "#33FF99", fontWeight: "bold" }}>
-              E-Learning
-            </span>
+              <img src={logo} style={{height:"45px", padding:"2px"}}/>
           </Link>
           <button
             className="navbar-toggler"
@@ -95,23 +95,6 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <section>
-        <div
-          id="intro"
-          className="bg-image vh-100"
-          style={{
-            backgroundImage: `url(${image})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <div
-            className="mask"
-            style={{ backgroundColor: "rgba(250, 182, 162, 0.15)" }}
-          ></div>
-        </div>
-      </section>
     </header>
   );
 }

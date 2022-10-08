@@ -3,6 +3,7 @@ import CardKanji from "./components/CardKanji/CardKanji";
 import CreateSlide from "./components/CreateSlide/CreateSlide";
 import DefaultLayout from "./components/Layout/DefaultLayout/DefaultLayout";
 import MultiCardKaji from "./components/MultiCardKanji/MultiCardKanji";
+import Quiz from "./components/Quiz/Quiz";
 import AddLesson from "./pages/AddLesson/AddLesson";
 import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
@@ -31,10 +32,10 @@ function App() {
             }
           />
           <Route
-            path="/addLesson"
+            path="/create"
             element={
               <DefaultLayout>
-                <AddLesson />
+                <CreateSlide />
               </DefaultLayout>
             }
           />
@@ -42,7 +43,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/card" element={<CardKanji />}></Route>
           <Route path="/multiCard" element={<MultiCardKaji />}></Route>
-          <Route path="/createSlide" element={<CreateSlide />}></Route>
+          <Route path="/quiz" element={<Quiz />}></Route>
         </Routes>
       </div>
     </Router>
