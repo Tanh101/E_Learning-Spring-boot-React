@@ -1,5 +1,6 @@
 package com.crossguild.elearning.model.user;
 
+import com.crossguild.elearning.model.Card.Card;
 import com.crossguild.elearning.model.quiz.Question;
 import com.crossguild.elearning.model.quiz.Quiz;
 import com.crossguild.elearning.model.quiz.QuizResult;
@@ -83,4 +84,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     Set<Quiz> quizs;
+
+    @OneToMany(mappedBy = "user")
+    Set<Card> cards;
 }

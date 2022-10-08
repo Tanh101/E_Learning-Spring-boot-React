@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c03f6dc-05ff-488a-97f3-dec2a5b76293" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/quiz/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/quiz/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/be_spring/src/main/java/com/crossguild/elearning/model/user/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="7c03f6dc-05ff-488a-97f3-dec2a5b76293" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
