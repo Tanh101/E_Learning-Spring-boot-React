@@ -4,28 +4,23 @@ import com.crossguild.elearning.model.user.User;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Question {
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String text;
-
+    private boolean isCorrect;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "question_id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private User user;
+    private Question question;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Collection<Answer> answers;
+
 }
