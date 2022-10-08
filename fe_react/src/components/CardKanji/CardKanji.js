@@ -38,7 +38,7 @@ function CardKanji({ props }) {
               <></>
             )}
 
-            <div className="card-body">
+            <div className="card-kanji-body">
               <h5 className="title">{props.mean}</h5>
             </div>
           </div>

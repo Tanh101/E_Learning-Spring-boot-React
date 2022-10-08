@@ -22,14 +22,14 @@ const responsive = {
   },
 };
 function MultiCard() {
-  const [listRestaurant, setListRestaurant] = useState([]);
-  useEffect(() => {
-    API.get("home/restaurant").then((res) => {
-      setListRestaurant(res.data);
-    });
-  }, []);
+  const [listLesson, setListLesson] = useState([]);
+  // useEffect(() => {
+  //   API.get("").then((res) => {
+
+  //   });
+  // }, []);
   const renderCard = () => {
-    return listRestaurant.map((item, index) => {
+    return listLesson.map((item, index) => {
       return (
         <div key={index} className="item">
           <Card props={item} />
