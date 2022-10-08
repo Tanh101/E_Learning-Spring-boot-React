@@ -42,7 +42,7 @@ function AddLesson() {
               <input
                 type="text"
                 className="form-control mb-3"
-                placeholder="Enter restaurant name"
+                placeholder="Enter lesson name"
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>

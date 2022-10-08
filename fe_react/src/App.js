@@ -39,6 +39,14 @@ function App() {
               </DefaultLayout>
             }
           />
+          <Route
+            path="/createlesson"
+            element={
+              <DefaultLayout>
+                <AddLesson />
+              </DefaultLayout>
+            }
+          />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/card" element={<CardKanji />}></Route>

@@ -1,18 +1,18 @@
 import "./Quiz.css";
-import API from "../../requestHttp";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import RequestHttp from "../../requestHttp";
 function Quiz() {
+  let { request } = RequestHttp();
   const [question, setQuestion] = useState();
   const [answers, setAnswers] = useState();
   const [currentQuestion, setCurrentQuestion] = useState(1);
-  console.log(currentQuestion);
   useEffect(() => {
-    API.get(`/question:${currentQuestion}`).then((res) => {
+    request.get(`/quiz/question/1`).then((res) => {
       setQuestion(res.data);
       setAnswers(res.data.answers);
     });
@@ -51,7 +51,7 @@ function Quiz() {
       <div className="game-quiz-container">
         <div className="game-details-container">
           <h1>
-            Score : <span id="player-score"></span> / 10
+            Score : <span id="player-score">10</span> / 10
           </h1>
           <h1>
             Question : <span id="question-number"></span> / 10

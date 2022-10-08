@@ -27,7 +27,7 @@
   font-weight: 400;
   text-align: center;
 }
-.card-body {
+.card-kanji-body {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
