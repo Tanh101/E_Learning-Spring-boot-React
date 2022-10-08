@@ -20,7 +20,8 @@ function Login() {
             request.post("/auth/login", _formData).then((res) => {
                 if (res.status === 200) {
                     localStorage.setItem("token", res.data.token);
-                    // navigate("/");
+                    console.log(res.data);
+                    navigate("/");
                 }
             });
         }
@@ -47,15 +48,15 @@ function Login() {
                                 Login
                             </span>
 
-                            <div className="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                            <div className="wrap-input100 validate-input m-b-23" data-validate="Username is required">
                                 <span className="label-input100">Username</span>
-                                <input className="input100" type="text" name="username" placeholder="Type your username" />
+                                <input className="input100" type="text" name="username" placeholder="Type your username" onChange={(e) => {setUsername(e.target.value)}}/>
                                 <span className="focus-input100" data-symbol=""></span>
                             </div>
 
                             <div className="wrap-input100 validate-input" data-validate="Password is required">
                                 <span className="label-input100">Password</span>
-                                <input className="input100" type="password" name="pass" placeholder="Type your password" />
+                                <input className="input100" type="password" name="pass" placeholder="Type your password" onChange={(e) => {setPassword(e.target.value)}}/>
                                 <span className="focus-input100" data-symbol=""></span>
                             </div>
 
@@ -68,7 +69,7 @@ function Login() {
                             <div className="container-login100-form-btn">
                                 <div className="wrap-login100-form-btn">
                                     <div className="login100-form-bgbtn"></div>
-                                    <button className="login100-form-btn">
+                                    <button className="login100-form-btn" onClick={loginSubmit}>
                                         Login
                                     </button>
                                 </div>

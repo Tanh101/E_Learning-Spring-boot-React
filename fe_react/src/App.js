@@ -3,6 +3,7 @@ import CardKanji from "./components/CardKanji/CardKanji";
 import CreateSlide from "./components/CreateSlide/CreateSlide";
 import DefaultLayout from "./components/Layout/DefaultLayout/DefaultLayout";
 import MultiCardKaji from "./components/MultiCardKanji/MultiCardKanji";
+import CreateQuiz from "./components/Quiz/CreateQuiz";
 import Quiz from "./components/Quiz/Quiz";
 import AddLesson from "./pages/AddLesson/AddLesson";
 import Admin from "./pages/Admin/Admin";
@@ -53,6 +54,7 @@ function App() {
           <Route path="/card" element={<CardKanji />}></Route>
           <Route path="/multiCard" element={<MultiCardKaji />}></Route>
           <Route path="/quiz" element={<Quiz />}></Route>
+          <Route path="/createquiz" element={<CreateQuiz />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
 
         </Routes>
