@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    private RoleRepo roleRepo;
+    private final RoleRepo roleRepo;
 
     public RoleServiceImpl(RoleRepo roleRepo) {
         this.roleRepo = roleRepo;
@@ -30,6 +30,11 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role save(Role role) {
+        return roleRepo.save(role);
+    }
+
+    @Override
+    public Role update(Role role) {
         return roleRepo.save(role);
     }
 

@@ -32,13 +32,13 @@ import java.util.Set;
 public class AuthController {
 
     private final UserServiceImpl userService;
-    private RoleServiceImpl roleService;
+    private final RoleServiceImpl roleService;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    private JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
     public AuthController(UserServiceImpl userService, RoleServiceImpl roleService, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
         this.userService = userService;

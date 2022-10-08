@@ -1,5 +1,6 @@
 package com.crossguild.elearning.service.impl;
 
+import com.crossguild.elearning.model.user.Role;
 import com.crossguild.elearning.model.user.User;
 import com.crossguild.elearning.repo.UserRepo;
 import com.crossguild.elearning.service.UserService;
@@ -11,7 +12,7 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepo userRepo;
+    private final UserRepo userRepo;
 
     public UserServiceImpl(UserRepo userRepo) {
         this.userRepo = userRepo;
@@ -29,6 +30,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
+        return userRepo.save(user);
+    }
+
+    @Override
+    public User update(User user) {
         return userRepo.save(user);
     }
 
