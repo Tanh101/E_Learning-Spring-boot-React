@@ -18,6 +18,7 @@ public class Question {
     private String text;
 
 
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @EqualsAndHashCode.Exclude
