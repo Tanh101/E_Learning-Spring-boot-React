@@ -59,14 +59,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             // pass the request along the filter chain
             filterChain.doFilter(request, response);
         } catch (Exception e) {
-            logger.error("Can't set user authentication: ", e.getMessage());
+            logger.error(e.getMessage());
         }
     }
 
     private String getJwt(HttpServletRequest request) {
         final String authorizationHeader = request.getHeader("Authorization");
-        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-            return authorizationHeader.replace("Bearer ", "");
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer")) {
+            return authorizationHeader.replace("Bearer", "");
         }
         return null;
     }

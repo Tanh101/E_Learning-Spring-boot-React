@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 public class MyUserDetails implements UserDetails {
 
     private final String username;
-    @JsonIgnore
+    private final String avatar;
+
     private final String password;
     private final Collection<? extends GrantedAuthority> roles;
 
@@ -22,6 +23,7 @@ public class MyUserDetails implements UserDetails {
         this.username = username;
         this.password = password;
         this.roles = roles;
+        this.avatar = avatar;
     }
 
     public static MyUserDetails build(User user) {
@@ -51,6 +53,10 @@ public class MyUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public String getAvatar() {
+        return avatar;
     }
 
     @Override

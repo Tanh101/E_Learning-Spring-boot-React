@@ -1,5 +1,6 @@
 package com.crossguild.elearning.controller;
 
+import com.crossguild.elearning.dto.quiz.QuestionDTO;
 import com.crossguild.elearning.model.quiz.Answer;
 import com.crossguild.elearning.model.quiz.Question;
 import com.crossguild.elearning.service.AnswerService;
@@ -17,6 +18,7 @@ public class QuizController {
 
     private final QuestionService questionService;
     private final AnswerService answerService;
+
 
     public QuizController(QuestionService questionService, AnswerService answerService) {
         this.questionService = questionService;
@@ -36,9 +38,9 @@ public class QuizController {
     }
 
     @PostMapping("/question/add")
-    public ResponseEntity<Question> addNewQuestion(@RequestBody Question question) {
-        Question newQuestion = questionService.save(question);
-        return new ResponseEntity<>(newQuestion, HttpStatus.CREATED);
+    public ResponseEntity<Integer> addNewQuestion(@RequestBody QuestionDTO question)  {
+        Integer result = questionService.addNewQuestion(question.getId(), question.getText(), question.getUserId());
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @PutMapping("/question/update")

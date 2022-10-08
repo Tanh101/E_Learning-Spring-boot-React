@@ -1,6 +1,8 @@
 package com.crossguild.elearning.service.impl;
 
+import com.crossguild.elearning.dto.quiz.QuestionDTO;
 import com.crossguild.elearning.model.quiz.Question;
+import com.crossguild.elearning.model.user.User;
 import com.crossguild.elearning.repo.QuestionRepo;
 import com.crossguild.elearning.service.QuestionService;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,10 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public void deleteById(Long id) {
         questionRepo.deleteById(id);
+    }
+
+    @Override
+    public Integer addNewQuestion(Long id, String text, Long userId) {
+        return questionRepo.addNewQuestion(id, text, userId);
     }
 }

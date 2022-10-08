@@ -1,12 +1,19 @@
 package com.crossguild.elearning.controller;
 
+import com.crossguild.elearning.dto.request.SignInForm;
+import com.crossguild.elearning.dto.response.JwtResponse;
 import com.crossguild.elearning.model.user.User;
+import com.crossguild.elearning.security.service.MyUserDetails;
 import com.crossguild.elearning.service.UserService;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +23,11 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService) {
+    private final AuthenticationManager authenticationManager;
+
+    public UserController(UserService userService, AuthenticationManager authenticationManager) {
         this.userService = userService;
+        this.authenticationManager = authenticationManager;
     }
 
     @GetMapping("/all")
@@ -48,5 +58,14 @@ public class UserController {
     public ResponseEntity<?> deleteById(@PathVariable("id") Long id) {
         userService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/auth")
+    public ResponseEntity<Authentication> getUser(@Valid @ModelAttribute SignInForm signInForm) {
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(signInForm.getUsername(), signInForm.getPassword()));
+        Authentication authentication1 = SecurityContextHolder.getContext().getAuthentication();
+//        MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
+        return new ResponseEntity<>(authentication1, HttpStatus.OK);
     }
 }
