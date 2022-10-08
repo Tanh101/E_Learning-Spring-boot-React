@@ -17,7 +17,8 @@ function Login() {
             const _formData = new FormData();
             _formData.append("username", username);
             _formData.append("password", password);
-            request.post("/auth/login", _formData).then((res) => {
+            axios.post("http://localhost:8080/api/auth/login", _formData).then((res) => {
+                console.log(res.data);
                 if (res.status === 200) {
                     localStorage.setItem("token", res.data.token);
                     console.log(res.data);

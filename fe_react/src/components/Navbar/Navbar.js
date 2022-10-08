@@ -12,13 +12,12 @@ import RequestHttp from "../../requestHttp";
 
 function Navbar() {
   const [user, setUser] = useState("user");
-  let {request} = RequestHttp();
+  let { request } = RequestHttp();
   useEffect(() => {
     document.querySelector(".navbar").classList.remove("mask-custom");
   });
   useEffect(() => {
-    request.get("/auth/login",).then((res) => {
-    });
+    request.get("/auth/login").then((res) => {});
   });
   const contents = [
     {
@@ -32,6 +31,14 @@ function Navbar() {
     {
       name: "Create",
       href: "/create",
+    },
+    {
+      name: "Card",
+      href: "/multiCard",
+    },
+    {
+      name: "Quiz",
+      href: "/quiz",
     },
   ];
   const renderContent = () => {
