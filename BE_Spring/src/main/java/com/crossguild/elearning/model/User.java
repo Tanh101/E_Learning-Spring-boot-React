@@ -12,7 +12,7 @@ import java.util.Set;
                 "username"
         }),
         @UniqueConstraint(columnNames = {
-            "password"
+            "email"
         })
 })
 public class User {
@@ -103,6 +103,13 @@ public class User {
         this.password = password;
         this.avatar = avatar;
         this.roles = roles;
+    }
+
+    public User(String name , String username, String email, String encode) {
+        this.name = name;
+        this.username = username;
+        this.email = email;
+        this.password = encode;
     }
 
     public User(){

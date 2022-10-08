@@ -4,9 +4,11 @@ import com.crossguild.elearning.model.User;
 import com.crossguild.elearning.repo.IUserRepository;
 import com.crossguild.elearning.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements IUserService {
     @Autowired
     IUserRepository userRepository;
