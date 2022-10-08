@@ -36,9 +36,13 @@ function Login() {
         }}>
             <div className="limiter">
                 <div className="container-login100" >
-                    <Link to="#" class="previous round">&#8249;</Link>
+
                     <div className="wrap-login100 p-l-30 p-r-30 p-t-35 p-b-30">
+                        <Link to="/" className="tx2 previous">
+                            Back
+                        </Link>
                         <form className="login100-form validate-form">
+
                             <span className="login100-form-title p-b-49">
                                 Login
                             </span>
@@ -71,7 +75,7 @@ function Login() {
                             </div>
                             <div className="flex-col-c p-t-155">
                                 <Link to="/register" className="txt2">
-                                    Sign Up
+                                    Register
                                 </Link>
                             </div>
                         </form>
