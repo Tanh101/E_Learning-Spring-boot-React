@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c03f6dc-05ff-488a-97f3-dec2a5b76293" name="Changes" comment="" />
+    <list default="true" id="7c03f6dc-05ff-488a-97f3-dec2a5b76293" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +51,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2FneEJA2GT1XOuB0TzH0IFKoWir" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -79,6 +81,13 @@
     &quot;spring.configuration.checksum&quot;: &quot;fe1a43e316f11e681413b585ea12ff07&quot;
   }
 }</component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.ElearningApplication">
     <configuration name="ElearningApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="elearning" />
@@ -108,6 +117,7 @@
       <workItem from="1665157670186" duration="15080000" />
       <workItem from="1665192694036" duration="1142000" />
       <workItem from="1665193854088" duration="838000" />
+      <workItem from="1665194715771" duration="1098000" />
     </task>
     <servers />
   </component>
