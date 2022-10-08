@@ -11,5 +11,7 @@ public interface Service<T, K> {
 
     T save(T entity);
 
+    T update(T entity);
+
     void deleteById(K id);
 }
