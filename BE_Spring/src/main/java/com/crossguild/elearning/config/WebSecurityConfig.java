@@ -5,6 +5,7 @@ import com.crossguild.elearning.security.service.MyUserDetailsService;
 import com.crossguild.elearning.security.util.JwtEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -49,6 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/quiz/**").authenticated()
+                .antMatchers("/api/user/**").authenticated()
+                .antMatchers(HttpMethod.POST, "/api/quiz/add").access("hasRole('ROLE_TEACHER')")
+                .antMatchers(HttpMethod.POST, "/api/question/add").access("hasRole('ROLE_TEACHER')")
                 //.antMatchers("/api/")
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
