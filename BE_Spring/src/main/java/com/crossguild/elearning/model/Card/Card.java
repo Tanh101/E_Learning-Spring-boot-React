@@ -1,5 +1,6 @@
-package com.crossguild.elearning.model.quiz;
+package com.crossguild.elearning.model.Card;
 
+import com.crossguild.elearning.model.quiz.Question;
 import com.crossguild.elearning.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
@@ -10,31 +11,29 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Quiz {
+public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 200)
+
     private String title;
 
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
+    private LocalDateTime createdDate;
+
+    @OneToMany(mappedBy = "card", fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
-    private List<Question> questions;
-
-    @OneToMany(mappedBy = "quiz")
-    @JsonIgnore
-    Set<QuizResult> quizResults;
+    private Set<Page> pages;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnore
     private User user;
 
-    private LocalDateTime createDate;
 }

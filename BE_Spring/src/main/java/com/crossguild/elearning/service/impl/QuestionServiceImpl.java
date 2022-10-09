@@ -48,4 +48,10 @@ public class QuestionServiceImpl implements QuestionService {
     public Integer addNewQuestion(Long id, String text, Long userId) {
         return questionRepo.addNewQuestion(id, text, userId);
     }
+
+    @Override
+    public List<Question> getQuestionsByQuizId(Long id) {
+        return questionRepo.getQuestionsByQuizId(id);
+    }
+
 }
