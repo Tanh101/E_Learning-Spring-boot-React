@@ -4,6 +4,7 @@ import com.crossguild.elearning.dto.quiz.AnswerDTO;
 import com.crossguild.elearning.dto.quiz.QuestionDTO;
 import com.crossguild.elearning.model.quiz.Question;
 import com.crossguild.elearning.service.QuestionService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,12 @@ public class QuestionController {
     @GetMapping("/all")
     public ResponseEntity<List<Question>> getAllQuestions() {
         List<Question> questions = questionService.getAll();
+        return new ResponseEntity<>(questions, HttpStatus.OK);
+    }
+
+    @GetMapping("/quiz/{id}")
+    public ResponseEntity<List<Question>> getAllQuestionsByQuizId(@PathVariable("id") Long id) {
+        List<Question> questions = questionService.getQuestionsByQuizId(id);
         return new ResponseEntity<>(questions, HttpStatus.OK);
     }
 

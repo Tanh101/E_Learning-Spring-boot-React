@@ -1,6 +1,7 @@
 package com.crossguild.elearning.model.quiz;
 
 import com.crossguild.elearning.model.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,18 +23,19 @@ public class Quiz {
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnore
     private List<Question> questions;
 
     @OneToMany(mappedBy = "quiz")
+    @JsonIgnore
     Set<QuizResult> quizResults;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnore
     private User user;
 
     private LocalDateTime createDate;
-
-
 }

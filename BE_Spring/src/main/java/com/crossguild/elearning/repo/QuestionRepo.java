@@ -19,4 +19,6 @@ public interface QuestionRepo extends JpaRepository<Question, Long> {
     @Transactional
     @Query(value = "INSERT INTO Question (`id`, `text`, `user_id`) VALUES (:id, :text, :userId);", nativeQuery = true)
     Integer addNewQuestion(@Param("id") Long id, @Param("text") String text, @Param("userId") Long userId);
+
+    List<Question> getQuestionsByQuizId(Long id);
 }
