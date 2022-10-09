@@ -34,7 +34,6 @@ public class Quiz {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
     private User user;
 
     private LocalDateTime createDate;

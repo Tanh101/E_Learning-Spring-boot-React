@@ -77,11 +77,15 @@ public class User {
 //    private List<Question> questions;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
+
     Set<QuizResult> quizResults;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     Set<Quiz> quizs;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     Set<Card> cards;
 }
