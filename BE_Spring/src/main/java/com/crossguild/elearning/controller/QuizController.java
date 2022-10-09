@@ -1,10 +1,10 @@
 package com.crossguild.elearning.controller;
 
 import com.crossguild.elearning.dto.quiz.QuestionDTO;
-import com.crossguild.elearning.model.quiz.Answer;
+import com.crossguild.elearning.dto.quiz.QuizDTO;
 import com.crossguild.elearning.model.quiz.Question;
-import com.crossguild.elearning.service.AnswerService;
-import com.crossguild.elearning.service.QuestionService;
+import com.crossguild.elearning.model.quiz.Quiz;
+import com.crossguild.elearning.service.QuizService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,73 +16,42 @@ import java.util.Optional;
 @RequestMapping("/api/quiz")
 public class QuizController {
 
-    private final QuestionService questionService;
-    private final AnswerService answerService;
+    private final QuizService quizService;
 
-
-    public QuizController(QuestionService questionService, AnswerService answerService) {
-        this.questionService = questionService;
-        this.answerService = answerService;
+    public QuizController(QuizService quizService) {
+        this.quizService = quizService;
     }
 
-    @GetMapping("/questions/all")
-    public ResponseEntity<List<Question>> getAllQuestions() {
-        List<Question> questions = questionService.getAll();
-        return new ResponseEntity<>(questions, HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<Quiz>> getAllQuizzes() {
+        List<Quiz> quizzes = quizService.getAll();
+        return new ResponseEntity<>(quizzes, HttpStatus.OK);
     }
 
-    @GetMapping("/question/{id}")
-    public ResponseEntity<Optional<Question>> getQuestionById(@PathVariable("id") Long id) {
-        Optional<Question> question = questionService.getById(id);
-        return new ResponseEntity<>(question, HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Quiz>> getQuizById(@PathVariable("id") Long id) {
+        Optional<Quiz> quiz = quizService.getById(id);
+        return new ResponseEntity<>(quiz, HttpStatus.OK);
     }
 
-    @PostMapping("/question/add")
-    public ResponseEntity<Integer> addNewQuestion(@RequestBody QuestionDTO question)  {
-        Integer result = questionService.addNewQuestion(question.getId(), question.getText(), question.getUserId());
-        return new ResponseEntity<>(result, HttpStatus.CREATED);
+    @PostMapping("/add")
+    public ResponseEntity<QuizDTO> addNewQuiz(@RequestBody QuizDTO quizDTO)  {
+        Integer result = quizService.addNewQuiz(quizDTO.getCreateDate(), quizDTO.getTitle(), quizDTO.getUserId());
+        if (Integer.parseInt(result.toString()) >= 1) {
+            return new ResponseEntity<>(new QuizDTO(quizDTO.getCreateDate(), quizDTO.getTitle(), quizDTO.getUserId()), HttpStatus.CREATED);
+        }
+        return null;
     }
 
-    @PutMapping("/question/update")
-    public ResponseEntity<Question> updateQuestion(@RequestBody Question question) {
-        Question updateQuestion = questionService.update(question);
-        return new ResponseEntity<>(updateQuestion, HttpStatus.OK);
+    @PutMapping("/update")
+    public ResponseEntity<Quiz> updateQuiz(@RequestBody Quiz quiz) {
+        Quiz updateQuiz = quizService.save(quiz);
+        return new ResponseEntity<>(updateQuiz, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/question/{id}")
-    public ResponseEntity<?> deleteQuestionById(@PathVariable("id") Long id) {
-        questionService.deleteById(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteQuizById(@PathVariable("id") Long id) {
+        quizService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-    @GetMapping("/answers/all")
-    public ResponseEntity<List<Answer>> getAllAnswers() {
-        List<Answer> answers = answerService.getAll();
-        return new ResponseEntity<>(answers, HttpStatus.OK);
-    }
-
-    @GetMapping("/answer/{id}")
-    public ResponseEntity<Optional<Answer>> getAnswerById(@PathVariable("id") Long id) {
-        Optional<Answer> answer = answerService.getById(id);
-        return new ResponseEntity<>(answer, HttpStatus.OK);
-    }
-
-    @PostMapping("/answer/add")
-    public ResponseEntity<Answer> addNewAnswer(@RequestBody Answer answer) {
-        Answer newAnswer = answerService.save(answer);
-        return new ResponseEntity<>(newAnswer, HttpStatus.CREATED);
-    }
-
-    @PutMapping("/answer/update")
-    public ResponseEntity<Answer> updateQuestion(@RequestBody Answer answer) {
-        Answer updateAnswer = answerService.update(answer);
-        return new ResponseEntity<>(updateAnswer, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/answer/{id}")
-    public ResponseEntity<?> deleteAnswerById(@PathVariable("id") Long id) {
-        answerService.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
 }
