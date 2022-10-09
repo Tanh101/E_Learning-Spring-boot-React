@@ -244,13 +244,9 @@ iframe {
 }
 
 .previous {
-    text-decoration: none;
-    font-size: 2rem;
-    display: inline-block;
-    padding: 0 16px;
-    background-color: #A64BF4;
-    color: white;
-    border-radius: 50%;
+    position: absolute;
+    color: #333;
+    padding-top: 10px
 }
 
 

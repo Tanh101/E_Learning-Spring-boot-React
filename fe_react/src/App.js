@@ -3,6 +3,7 @@ import CardKanji from "./components/CardKanji/CardKanji";
 import CreateSlide from "./components/CreateSlide/CreateSlide";
 import DefaultLayout from "./components/Layout/DefaultLayout/DefaultLayout";
 import MultiCardKaji from "./components/MultiCardKanji/MultiCardKanji";
+import CreateQuiz from "./components/Quiz/CreateQuiz";
 import Quiz from "./components/Quiz/Quiz";
 import AddLesson from "./pages/AddLesson/AddLesson";
 import Admin from "./pages/Admin/Admin";
@@ -10,6 +11,7 @@ import Home from "./pages/Home";
 import Lesson from "./pages/Lesson";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ShowScore from "./pages/ShowScore/ShowScore";
 
 function App() {
   return (
@@ -50,11 +52,32 @@ function App() {
           />
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/card" element={<CardKanji />}></Route>
-          <Route path="/multiCard" element={<MultiCardKaji />}></Route>
-          <Route path="/quiz" element={<Quiz />}></Route>
+          <Route
+            path="/multiCard"
+            element={
+              <DefaultLayout>
+                <MultiCardKaji />
+              </DefaultLayout>
+            }
+          ></Route>
+          <Route
+            path="/quiz"
+            element={
+              <DefaultLayout>
+                <Quiz />
+              </DefaultLayout>
+            }
+          ></Route>
+          <Route path="/createquiz" element={<CreateQuiz />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
-
+          <Route
+            path="/showscore"
+            element={
+              <Admin>
+                <ShowScore />
+              </Admin>
+            }
+          ></Route>
         </Routes>
       </div>
     </Router>
