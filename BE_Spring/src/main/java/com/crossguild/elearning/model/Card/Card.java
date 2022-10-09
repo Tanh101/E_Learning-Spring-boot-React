@@ -3,10 +3,7 @@ package com.crossguild.elearning.model.Card;
 import com.crossguild.elearning.model.quiz.Question;
 import com.crossguild.elearning.model.user.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,6 +11,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Card {
@@ -28,7 +27,6 @@ public class Card {
     @OneToMany(mappedBy = "card", fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
     private Set<Page> pages;
 
     @ManyToOne(cascade = CascadeType.ALL)

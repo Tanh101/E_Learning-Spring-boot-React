@@ -1,15 +1,15 @@
 package com.crossguild.elearning.model.Card;
 
 import com.crossguild.elearning.model.user.User;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Page {
@@ -26,7 +26,6 @@ public class Page {
     @JoinColumn(name = "card_id", referencedColumnName = "id")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnore
     private Card card;
-
-
 }

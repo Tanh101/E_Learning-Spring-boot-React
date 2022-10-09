@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/api/card")
+@RestController
 public class CardController {
 
     private final CardService cardService;

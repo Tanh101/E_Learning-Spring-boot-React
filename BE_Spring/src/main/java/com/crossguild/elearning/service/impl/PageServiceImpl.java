@@ -42,4 +42,9 @@ public class PageServiceImpl implements PageService {
     public void deleteById(Long id) {
         pageRepo.deleteById(id);
     }
+
+    @Override
+    public List<Page> getPagesByCardId(Long id) {
+        return pageRepo.getPagesByCardId(id);
+    }
 }
