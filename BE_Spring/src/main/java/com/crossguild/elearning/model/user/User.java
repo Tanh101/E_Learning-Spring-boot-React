@@ -1,6 +1,7 @@
 package com.crossguild.elearning.model.user;
 
-import com.crossguild.elearning.model.quiz.Question;
+import com.crossguild.elearning.model.Card.Card;
+import com.crossguild.elearning.model.Card.Page;
 import com.crossguild.elearning.model.quiz.Quiz;
 import com.crossguild.elearning.model.quiz.QuizResult;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,10 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -83,4 +81,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     Set<Quiz> quizs;
+
+    @OneToMany(mappedBy = "user")
+    Set<Card> cards;
 }
