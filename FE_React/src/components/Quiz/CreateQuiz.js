@@ -2,13 +2,72 @@ import React, { useState } from 'react'
 import QuizItem from './QuizItem'
 import './CreateQuiz.css'
 
-const [quizzes, setQuizzes] = useState(
 
-)
 
 function CreateQuiz() {
-    const addQuizHandle = () {
-
+    const initialQuizzes = [
+        {
+            "question": {
+                "id": 1,
+                "text": "どの大学が一東証ですか",
+                "answers": [
+                    {
+                        "id": 1,
+                        "text": "DUT",
+                        "correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "HUST",
+                        "correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "UIT",
+                        "correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "UET",
+                        "correct": false
+                    },
+                ]
+            },
+        }
+    ]
+    const [quizzes, setQuizzes] = useState(initialQuizzes)
+    const addQuizHandle = () => {
+        setQuizzes((prevQuizzes) => [
+            ...prevQuizzes,
+            {
+                "question": {
+                    "id": 1,
+                    "text": "どの大学が一東証ですか",
+                    "answers": [
+                        {
+                            "id": 1,
+                            "text": "DUT",
+                            "correct": true
+                        },
+                        {
+                            "id": 2,
+                            "text": "HUST",
+                            "correct": false
+                        },
+                        {
+                            "id": 3,
+                            "text": "UIT",
+                            "correct": false
+                        },
+                        {
+                            "id": 4,
+                            "text": "UET",
+                            "correct": false
+                        },
+                    ]
+                }
+            }
+        ])
     }
     return (
         <div className='quiz-create'>
@@ -18,6 +77,7 @@ function CreateQuiz() {
                         <QuizItem
                             question={quiz.question}
                             answers={quiz.question.answers}
+                            onChange={setQuizzes}
                         />
                     </div>
                 )

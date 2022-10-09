@@ -1,5 +1,6 @@
 .quiz-create {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 .add-quiz {
     display: flex;

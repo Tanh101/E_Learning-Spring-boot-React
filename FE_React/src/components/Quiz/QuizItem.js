@@ -44,7 +44,7 @@ function QuizItem(props) {
             <div className="game-quiz-container">
 
                 <div className="game-question-container">
-                    <h1 id="display-question">{question ? question.text : "loading"}</h1>
+                    <input id="display-question" placeholder="Question"></input>
                 </div>
 
                 <div className="delete-btn">
