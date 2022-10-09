@@ -8,3 +8,17 @@
 .delete-btn:hover {
     cursor: pointer;
 }
+
+.input-question {
+    width: 100%;
+} 
+
+.input-answer {
+    margin-left: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.input-answer::placeholder {
+    color: white;
+}

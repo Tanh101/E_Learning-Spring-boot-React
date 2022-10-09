@@ -9,42 +9,94 @@ import {
 import RequestHttp from "../../requestHttp";
 
 function QuizItem(props) {
-    useEffect(() => {
-        setQuestion(props.question);
-        setAnswers(props.answers);
-    },[])
     let { request } = RequestHttp();
     const [question, setQuestion] = useState();
-    const [answers, setAnswers] = useState();
+    const initAnswer = [
+        {
+            "id": 1,
+            "text": "",
+            "correct": false
+        },
+        {
+            "id": 2,
+            "text": "",
+            "correct": false
+        },
+        {
+            "id": 3,
+            "text": "",
+            "correct": false
+        },
+        {
+            "id": 4,
+            "text": "",
+            "correct": false
+        }
+    ]
+    const [answers, setAnswers] = useState(
+        initAnswer
+    );
     // const [currentQuestion, setCurrentQuestion] = useState(1);
 
+    const handleInput = (e) => {
+        console.log(e.target)
+
+        console.log(answers);
+        var answerTemp = answers;
+        answers.map((answer, index) => {
+            
+        })
+    }
+
     const renderAnswer = () => {
-        return answers?.map((item, index) => {
-            return (
+        return (
+            <>
                 <span
-                    className={`option option${index + 1}`}
-                    key={index}
+                    className={`option option1`}
+                    key={1}
                 >
                     <label>
-                        <div className={`quiz-icon${index + 1}`}>
-                            {item.correct ? (
-                                <FontAwesomeIcon className="tick" icon={faCheckCircle} />
-                            ) : (
-                                <FontAwesomeIcon className="cross" icon={faCircleXmark} />
-                            )}
-                        </div>
-                        {item.text}
+                        <input type="text" className="input-answer" placeholder="Answer 1" onChange={handleInput}></input>
                     </label>
                 </span>
-            );
-        });
+
+                <span
+                    className={`option option2`}
+                    key={2}
+                >
+                    <label>
+                        <input type="text" className="input-answer" placeholder="Answer 2"></input>
+                    </label>
+                </span>
+
+                <span
+                    className={`option option3`}
+                    key={3}
+                >
+                    <label>
+                        <input type="text" className="input-answer" placeholder="Answer 3"></input>
+                    </label>
+                </span>
+
+                <span
+                    className={`option option4`}
+                    key={4}
+                >
+                    <label>
+                        <input type="text" className="input-answer" placeholder="Answer 4"></input>
+                    </label>
+                </span>
+            </>
+
+        );
+
     };
     return (
         <div className="wrapper">
             <div className="game-quiz-container">
 
                 <div className="game-question-container">
-                    <input id="display-question" placeholder="Question"></input>
+                    <input className="input-question" placeholder="Question"></input>
                 </div>
 
                 <div className="delete-btn">

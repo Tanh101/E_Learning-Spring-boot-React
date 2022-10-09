@@ -17,8 +17,6 @@ public class MyUserDetails implements UserDetails {
 
     private final String password;
 
-    private final String avatar;
-
     private final Collection<? extends GrantedAuthority> roles;
 
     public MyUserDetails(Long id, String fullName, String username, String email, String password, String avatar,
