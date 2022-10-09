@@ -6,31 +6,73 @@ import {
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import RequestHttp from "../../requestHttp";
+import Swal from "sweetalert2";
 function Quiz() {
   let { request } = RequestHttp();
-  const [question, setQuestion] = useState();
-  const [answers, setAnswers] = useState();
+  const [questions, setQuestions] = useState();
   const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [questionNumber, setQuestionNumber] = useState();
+  const [checkSelected, setCheckSelected] = useState(false);
+  const [myAnswer, setMyAnswer] = useState();
+  const [score, setScore] = useState(0);
   useEffect(() => {
-    request.get(`/quiz/question/1`).then((res) => {
-      setQuestion(res.data);
-      setAnswers(res.data.answers);
+    request.get(`/quiz/questions/all`).then((res) => {
+      setQuestions(res.data);
+      setQuestionNumber(res.data.length);
     });
   }, []);
-  const Select = (index) => {
-    const answer = document.getElementsByClassName(`quiz-icon${index}`)[0];
-    answer.classList.add("check");
+  const SaveMark = () => {
+    
+  };
+  const Select = (index, isCorrect) => {
+    if (!checkSelected) {
+      const answer = document.getElementsByClassName(`quiz-icon${index}`)[0];
+      answer.classList.add("check");
+      setMyAnswer(index);
+      setCheckSelected(true);
+      if (isCorrect == true) setScore(score + 1);
+    }
   };
   const Next = () => {
-    setCurrentQuestion(currentQuestion + 1);
+    if (checkSelected) {
+      if (currentQuestion < questionNumber) {
+        setCurrentQuestion(currentQuestion + 1);
+        const answer = document.getElementsByClassName(
+          `quiz-icon${myAnswer}`
+        )[0];
+        answer.classList.remove("check");
+        setCheckSelected(false);
+      } else {
+        Swal.fire({
+          icon: "success",
+          title: "Congratulation!",
+          text: `My Score ${score}`,
+          showDenyButton: true,
+          confirmButtonText: "Save",
+          denyButtonText: "Do it again",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            SaveMark();
+          } else if (result.isDenied) {
+            setCurrentQuestion(1);
+            setScore(0);
+            const answer = document.getElementsByClassName(
+              `quiz-icon${myAnswer}`
+            )[0];
+            answer.classList.remove("check");
+            setCheckSelected(false);
+          }
+        });
+      }
+    }
   };
   const renderAnswer = () => {
-    return answers?.map((item, index) => {
+    return questions[currentQuestion - 1].answers?.map((item, index) => {
       return (
         <span
           className={`option option${index + 1}`}
           key={index}
-          onClick={() => Select(index + 1)}
+          onClick={() => Select(index + 1, item.correct)}
         >
           <label>
             <div className={`quiz-icon${index + 1}`}>
@@ -51,18 +93,20 @@ function Quiz() {
       <div className="game-quiz-container">
         <div className="game-details-container">
           <h1>
-            Score : <span id="player-score">10</span> / 10
-          </h1>
-          <h1>
-            Question : <span id="question-number"></span> / 10
+            Question : <span id="question-number">{currentQuestion}</span> /{" "}
+            {questionNumber}
           </h1>
         </div>
 
         <div className="game-question-container">
-          <h1 id="display-question">{question ? question.text : "loading"}</h1>
+          <h1 id="display-question">
+            {questions ? questions[currentQuestion - 1].text : "loading"}
+          </h1>
         </div>
 
-        <div className="game-options-container">{renderAnswer()}</div>
+        <div className="game-options-container">
+          {questions ? renderAnswer() : "loading"}
+        </div>
 
         <div className="next-button-container">
           <button onClick={Next}>Next Question</button>

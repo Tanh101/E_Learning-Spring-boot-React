@@ -89,4 +89,4 @@ function CreateQuiz() {
     )
 }
 
-export default CreateQuiz
+export default CreateQuiz;

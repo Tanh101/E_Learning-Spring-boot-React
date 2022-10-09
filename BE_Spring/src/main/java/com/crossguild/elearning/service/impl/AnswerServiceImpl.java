@@ -46,4 +46,9 @@ public class AnswerServiceImpl implements AnswerService {
     public List<Answer> getAllAnswersByQuestionId(Long id) {
         return answerRepo.getAnswerByQuestionId(id);
     }
+
+    @Override
+    public Integer addNewAnswer(Long id, Boolean isCorrect, String text, Long userId) {
+        return answerRepo.addNewAnswer(id, isCorrect, text, userId);
+    }
 }

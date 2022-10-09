@@ -93,4 +93,9 @@ public class AuthController {
         MyUserDetails myUserDetails = (MyUserDetails) authentication.getPrincipal();
         return new ResponseEntity<>(new JwtResponse(token, myUserDetails.getUsername(), myUserDetails.getAuthorities()), HttpStatus.OK);
     }
+
+//    @PostMapping("/logout")
+//    public ResponseEntity<?> logout() {
+//
+//    }
 }

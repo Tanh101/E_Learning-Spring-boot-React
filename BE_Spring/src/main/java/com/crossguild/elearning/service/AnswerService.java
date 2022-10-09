@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AnswerService extends Service<Answer, Long> {
     List<Answer> getAllAnswersByQuestionId(Long id);
+    Integer addNewAnswer(Long id, Boolean isCorrect, String text, Long userId);
 }
